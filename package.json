@@ -1,0 +1,15 @@
+{
+	"name": "feedback-app-backend",
+	"version": "0.0.1",
+	"description": "REST API",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "npx nodemon index.js"
+	},
+	"author": "ArzCorp",
+	"license": "MIT",
+	"dependencies": {
+		"express": "4.18.2"
+	}
+}
