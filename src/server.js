@@ -6,7 +6,7 @@ const app = express()
 connectDB()
 
 app.get('/feedbacks', (req, res) => {
-	res.send('Productos')
+	res.send('feedbacks')
 })
 
 app.get('/feedbacks/:id', (req, res) => {
