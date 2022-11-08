@@ -1,29 +1,22 @@
 import { Router } from 'express'
 import {
 	createFeedback,
+	deleteFeedback,
+	getFeedback,
 	getFeedbacks,
+	updateFeedback,
 } from '../controllers/feedbacks.controller.js'
 
 const router = Router()
 
 router.get('/feedbacks', getFeedbacks)
 
-router.get('/feedbacks/:id', (req, res) => {
-	res.send('Producto')
-})
+router.get('/feedbacks/:id', getFeedback)
 
 router.post('/feedbacks', createFeedback)
 
-router.put('/feedbacks/:id', (req, res) => {
-	res.send('Producto actualizado')
-})
+router.patch('/feedbacks/:id', updateFeedback)
 
-router.patch('/feedbacks/:id', (req, res) => {
-	res.send('Producto actualizado')
-})
-
-router.delete('/feedbacks/:id', (req, res) => {
-	res.send('Producto eliminado')
-})
+router.delete('/feedbacks/:id', deleteFeedback)
 
 export default router
