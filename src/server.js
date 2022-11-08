@@ -1,33 +1,10 @@
-const express = require('express')
-const connectDB = require('./db')
+import express from 'express'
+import feedbackRouter from './routes/feedbacks.routes.js'
 
 const app = express()
 
-connectDB()
-
-app.get('/feedbacks', (req, res) => {
-	res.send('feedbacks')
-})
-
-app.get('/feedbacks/:id', (req, res) => {
-	res.send('Producto')
-})
-
-app.post('/feedbacks', (req, res) => {
-	res.send('Producto creado')
-})
-
-app.put('/feedbacks/:id', (req, res) => {
-	res.send('Producto actualizado')
-})
-
-app.patch('/feedbacks/:id', (req, res) => {
-	res.send('Producto actualizado')
-})
-
-app.delete('/feedbacks/:id', (req, res) => {
-	res.send('Producto eliminado')
-})
+app.use(express.json())
+app.use(feedbackRouter)
 
 app.listen(3001)
 
