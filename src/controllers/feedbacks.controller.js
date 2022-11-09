@@ -23,15 +23,14 @@ export const createFeedback = async (req, res) => {
 		const { title, detail, tagId, ranking, statusId } = req.body
 
 		const [ResultSetHeader] = await db.query(
-			`INSERT INTO feedbacks.feedbacks (title, detail, tagId, ranking, statusId)
+			`INSERT INTO feedbacks (title, detail, tagId, ranking, statusId)
     VALUES (?, ?, ?, ?, ?);`,
 			[title, detail, tagId, ranking, statusId]
 		)
 
-		const [rows] = await db.query(
-			'SELECT * FROM feedbacks.feedbacks WHERE id = ?;',
-			[ResultSetHeader.insertId]
-		)
+		const [rows] = await db.query('SELECT * FROM feedbacks WHERE id = ?;', [
+			ResultSetHeader.insertId,
+		])
 
 		res.json({
 			...templateResponse,
