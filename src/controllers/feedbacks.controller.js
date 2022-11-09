@@ -22,6 +22,8 @@ export const createFeedback = async (req, res) => {
 	try {
 		const { title, detail, tagId, ranking, statusId } = req.body
 
+		console.log(req.body)
+
 		const [ResultSetHeader] = await db.query(
 			`INSERT INTO feedbacks (title, detail, tagId, ranking, statusId)
     VALUES (?, ?, ?, ?, ?);`,
@@ -37,7 +39,7 @@ export const createFeedback = async (req, res) => {
 			data: rows[0],
 			message: `Feedback created`,
 		})
-	} catch {
+	} catch (error) {
 		res.status(500).json({
 			...templateResponse,
 			status: 'error',
