@@ -6,6 +6,7 @@ import { notFoundMiddleware } from './middlewares/notFound.js'
 import feedbackRouter from './routes/feedbacks.routes.js'
 import statusRouter from './routes/status.routes.js'
 import tagsRouter from './routes/tags.routes.js'
+import commentsRouter from './routes/comments.routes.js'
 
 const app = express()
 
@@ -18,6 +19,8 @@ app.use(feedbackRouter)
 app.use(statusRouter)
 
 app.use(tagsRouter)
+
+app.use(commentsRouter)
 
 app.use(notFoundMiddleware)
 
