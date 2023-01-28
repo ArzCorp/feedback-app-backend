@@ -3,10 +3,10 @@ import { templateResponse } from '../utils/templateResponse.js'
 
 export const getFeedbacks = async (req, res) => {
 	try {
-		const [rows] = await db.query('SELECT * FROM feedbacks')
+		const [rows] = await db.query('CALL get_feedbacks;')
 		res.send({
 			...templateResponse,
-			data: rows,
+			data: rows[0],
 		})
 	} catch (error) {
 		res.status(500).json({
